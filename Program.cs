@@ -14,8 +14,8 @@ double newMemberCourageFactor = 0.0;
 bool keepAddingToTeam = true;
 int bankDifficultyLevel = 100;
 int teamSkillLevel = 0;
-int luckValue = new Random().Next(-10, 10);
-int bankDifficultyLevelAdjusted = bankDifficultyLevel + luckValue;
+int luckValue = 0;
+int bankDifficultyLevelAdjusted = 0;
 int numOfTrials = 0;
 // --------end default variables-------- //
 
@@ -38,7 +38,8 @@ while (keepAddingToTeam == true)
     Console.WriteLine($"Please enter a numerical skill level for {newMember}.");
     newMemberSkillLevelString = Console.ReadLine();
     newMemberSkillLevel = int.Parse(newMemberSkillLevelString);
-    Console.WriteLine($"Please enter a courage factor between 0.0 and 2.0 for {newMember}.)");newMemberCourageFactorString = Console.ReadLine();
+    Console.WriteLine($"Please enter a courage factor between 0.0 and 2.0 for {newMember}.)");
+    newMemberCourageFactorString = Console.ReadLine();
     newMemberCourageFactor = Double.Parse(newMemberCourageFactorString);
 
     TeamMember accomplice = new TeamMember(newMember, newMemberSkillLevel, newMemberCourageFactor);
@@ -51,6 +52,7 @@ if (fullTeamList.Count() == 1)
     Console.WriteLine($"Your team has {fullTeamList.Count()} member.");
     Console.WriteLine("How many trial runs of the heist would you like to perform?");
     numOfTrials = int.Parse(Console.ReadLine());
+    Console.WriteLine();
 }
 else
 {
@@ -58,6 +60,7 @@ else
     Console.WriteLine($"Your team has {fullTeamList.Count()} members.");
     Console.WriteLine("How many trial runs of the heist would you like to perform?");
     numOfTrials = int.Parse(Console.ReadLine());
+    Console.WriteLine();
 }
 foreach (TeamMember singleTeamMember in fullTeamList)
 {
@@ -66,28 +69,39 @@ foreach (TeamMember singleTeamMember in fullTeamList)
 }
 // ----------------------------end build team---------------------------- //
 
-// ----------------------team vs bank comparison---------------------- //
-if (teamSkillLevel >= bankDifficultyLevelAdjusted)
+// ------------------------------run trials------------------------------ //
+
+for (int i = 0; i < numOfTrials; i++)
 {
-    Console.WriteLine($"Team Skill Level: {teamSkillLevel}");
-    Console.WriteLine($"Bank Difficulty Level: {bankDifficultyLevelAdjusted}");
-    Console.WriteLine("Congratulations, Ex-Presidents! You pulled it off!");
-}
-else
-{
-    Console.WriteLine($"Team Skill Level: {teamSkillLevel}");
-    Console.WriteLine($"Bank Difficulty Level: {bankDifficultyLevelAdjusted}");
-    Console.WriteLine("Your heist failed. You're headed for prison. Vaya con Dios.");
+    luckValue = new Random().Next(-10, 10);
+    bankDifficultyLevelAdjusted = bankDifficultyLevel + luckValue;
+    // ----------------------team vs bank comparison---------------------- //
+    if (teamSkillLevel >= bankDifficultyLevelAdjusted)
+    {
+        Console.WriteLine($"Team Skill Level: {teamSkillLevel}  |  Bank Difficulty Level: {bankDifficultyLevelAdjusted}");
+        Console.WriteLine("Congratulations, Ex-Presidents! You pulled it off!");
+        Console.WriteLine();
+    }
+    else
+    {
+        Console.WriteLine($"Team Skill Level: {teamSkillLevel}  |  Bank Difficulty Level: {bankDifficultyLevelAdjusted}");
+        Console.WriteLine("Your heist failed. You're headed for prison. Vaya con Dios.");
+        Console.WriteLine();
+    }
+
+    // --------------------end team vs bank comparison-------------------- //
 }
 
-// --------------------end team vs bank comparison-------------------- //
+// ----------------------------end run trials---------------------------- //
+
+
 
 
 
 // TODO: NOTE: the courage factor will be a decimal between 0.0 and 2.0 (will probably need a conditional to handle input outside of that range).
 
-// TODO PHASE FIVE
-// TODO: 5.3 Loop through the difficulty / skill level calculation based on the user-entered number of trial runs. Choose a new luck value each time.
+// TODO: handle exceptions
+
 
 // TODO PHASE SIX
 // TODO: 6.1 At the beginning of the program, prompt the user to enter the difficulty level of the bank.
