@@ -12,7 +12,8 @@ int newMemberSkillLevel = 0;
 string newMemberCourageFactorString = "";
 double newMemberCourageFactor = 0.0;
 bool keepAddingToTeam = true;
-int bankDifficultyLevel = 100;
+string bankDifficultyLevelString = "";
+int bankDifficultyLevel = 0;
 int teamSkillLevel = 0;
 int luckValue = 0;
 int bankDifficultyLevelAdjusted = 0;
@@ -22,6 +23,10 @@ int numOfTrials = 0;
 List <TeamMember> fullTeamList = new List<TeamMember>();
 
 Console.WriteLine("Plan Your Heist!");
+Console.WriteLine();
+Console.WriteLine("Please enter a numerical bank difficulty level.");
+bankDifficultyLevelString = Console.ReadLine();
+bankDifficultyLevel = int.Parse(bankDifficultyLevelString);
 
 // ------------------build team------------------ //
 while (keepAddingToTeam == true)
@@ -104,7 +109,6 @@ for (int i = 0; i < numOfTrials; i++)
 
 
 // TODO PHASE SIX
-// TODO: 6.1 At the beginning of the program, prompt the user to enter the difficulty level of the bank.
 // TODO: 6.2 At the end of the program, display a report showing the number of successful runs and the number of failed runs.
 
 
