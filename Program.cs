@@ -59,17 +59,19 @@ foreach (TeamMember singleTeamMember in fullTeamList)
     teamSkillLevel += singleTeamMember.SkillLevel;
     
 }
-
-Console.WriteLine($"Your team's collective skill level: {teamSkillLevel}S");
 // ----------------------------end build team---------------------------- //
 
 // ----------------------team vs bank comparison---------------------- //
 if (teamSkillLevel >= bankDifficultyLevelAdjusted)
 {
+    Console.WriteLine($"Team Skill Level: {teamSkillLevel}");
+    Console.WriteLine($"Bank Difficulty Level: {bankDifficultyLevelAdjusted}");
     Console.WriteLine("Congratulations, Ex-Presidents! You pulled it off!");
 }
 else
 {
+    Console.WriteLine($"Team Skill Level: {teamSkillLevel}");
+    Console.WriteLine($"Bank Difficulty Level: {bankDifficultyLevelAdjusted}");
     Console.WriteLine("Your heist failed. You're headed for prison. Vaya con Dios.");
 }
 
@@ -78,11 +80,6 @@ else
 
 
 // TODO: NOTE: the courage factor will be a decimal between 0.0 and 2.0 (will probably need a conditional to handle input outside of that range).
-
-// TODO PHASE FOURS
-// TODO: 4.3 Before displaying the success or failure message, display a report that shows.
-// TODO:     4.3.1 The team's combined skill level
-// TODO:     4.3.2 The bank's difficulty level
 
 // TODO PHASE FIVE
 // TODO: 5.1 Run the scenario multiple times.
