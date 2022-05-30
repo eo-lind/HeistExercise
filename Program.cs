@@ -49,11 +49,15 @@ while (keepAddingToTeam == true)
 if (fullTeamList.Count() == 1)
 {
     Console.WriteLine($"Your team has {fullTeamList.Count()} member.");
+    Console.WriteLine("How many trial runs of the heist would you like to perform?");
+    numOfTrials = int.Parse(Console.ReadLine());
 }
 else
 {
  
     Console.WriteLine($"Your team has {fullTeamList.Count()} members.");
+    Console.WriteLine("How many trial runs of the heist would you like to perform?");
+    numOfTrials = int.Parse(Console.ReadLine());
 }
 foreach (TeamMember singleTeamMember in fullTeamList)
 {
@@ -83,7 +87,6 @@ else
 // TODO: NOTE: the courage factor will be a decimal between 0.0 and 2.0 (will probably need a conditional to handle input outside of that range).
 
 // TODO PHASE FIVE
-// TODO: 5.2 After the user enters the team information, prompt them to enter the number of trial runs the program should perform.
 // TODO: 5.3 Loop through the difficulty / skill level calculation based on the user-entered number of trial runs. Choose a new luck value each time.
 
 // TODO PHASE SIX
