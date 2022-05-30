@@ -43,10 +43,10 @@ while (keepAddingToTeam == true)
 }
 
 Console.WriteLine($"Your team has {fullTeamList.Count()} members.");
-foreach (TeamMember singleTeamMember in fullTeamList)
-{
-    Console.WriteLine($"{singleTeamMember.Name}  |  Skill Level: {singleTeamMember.SkillLevel}  |  Courage Factor: {singleTeamMember.CourageFactor}");
-}
+// foreach (TeamMember singleTeamMember in fullTeamList)
+// {
+//     Console.WriteLine($"{singleTeamMember.Name}  |  Skill Level: {singleTeamMember.SkillLevel}  |  Courage Factor: {singleTeamMember.CourageFactor}");
+// }
 // --------------------end team member acquisition-------------------- //
 
 
