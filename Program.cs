@@ -12,7 +12,7 @@ int newMemberSkillLevel = 0;
 string newMemberCourageFactorString = "";
 double newMemberCourageFactor = 0.0;
 bool keepAddingToTeam = true;
-
+int bankDifficultyLevel = 100;
 // --------end default variables-------- //
 
 List <TeamMember> fullTeamList = new List<TeamMember>();
@@ -53,8 +53,6 @@ Console.WriteLine($"Your team has {fullTeamList.Count()} members.");
 // TODO: NOTE: the courage factor will be a decimal between 0.0 and 2.0 (will probably need a conditional to handle input outside of that range).
 
 // TODO PHASE THREE
-// TODO: 3.1 Stop displaying each team member's information.
-// TODO: 3.2 Store a value for the bank's difficulty level. Set this value to 100.
 // TODO: 3.3 Sum the skill levels of the team. Save that number.
 // TODO: 3.4 Compare the number with the bank's difficulty level. If the team's skill level is greater than or equal to the bank's difficulty level, Display a success message, otherwise display a failure message.
 
