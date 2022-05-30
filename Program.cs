@@ -4,22 +4,50 @@ using System.Collections.Generic;
 //! static void Main(string[] args)
 // {
 // }
-    
+
+// ----------default variables---------- //
+string newMember = "default";
+string newMemberSkillLevelString = "";
+int newMemberSkillLevel = 0;
+string newMemberCourageFactorString = "";
+double newMemberCourageFactor = 0.0;
+bool keepAddingToTeam = true;
+
+// --------end default variables-------- //
+
+List <TeamMember> fullTeamList = new List<TeamMember>();
+
 Console.WriteLine("Plan Your Heist!");
-Console.WriteLine("Please provide the name of one of your team members.");
-string newMember = Console.ReadLine();
-Console.WriteLine($"Please enter a numerical skill level for {newMember}.");
-string newMemberSkillLevelString = Console.ReadLine();
-int newMemberSkillLevel = int.Parse(newMemberSkillLevelString);
-Console.WriteLine($"Please enter a courage factor between 0.0 and 2.0 for {newMember}.)");
-string newMemberCourageFactorString = Console.ReadLine();
-double newMemberCourageFactor = Double.Parse(newMemberCourageFactorString);
-Console.WriteLine($"Team Member: {newMember} | Skill Level: {newMemberSkillLevel} | Courage Factor: {newMemberCourageFactor}");
+
+while (keepAddingToTeam == true)
+// ----------acquiring team member properties to add to team member list---------- //
+{ 
+    Console.WriteLine("Please provide the name of one of your team members.");
+    newMember = Console.ReadLine();
+
+    if (newMember == "" || newMember == " ")
+    {
+        keepAddingToTeam = false;
+    }
+    else
+    {
+    Console.WriteLine($"Please enter a numerical skill level for {newMember}.");
+    newMemberSkillLevelString = Console.ReadLine();
+    newMemberSkillLevel = int.Parse(newMemberSkillLevelString);
+    Console.WriteLine($"Please enter a courage factor between 0.0 and 2.0 for {newMember}.)");newMemberCourageFactorString = Console.ReadLine();
+    newMemberCourageFactor = Double.Parse(newMemberCourageFactorString);
+
+    TeamMember accomplice = new TeamMember(newMember, newMemberSkillLevel, newMemberCourageFactor);
+    fullTeamList.Add(accomplice);
+    }
+}
+// --------------------end team member acquisition-------------------- //
+
+
+
+// TODO: NOTE: the courage factor will be a decimal between 0.0 and 2.0 (will probably need a conditional to handle input outside of that range).
 
 // TODO PHASE TWO Will need to refactor the way team members are added (with a method)
-// TODO: 2.1 Create a way to store several team members. NOTE: the courage factor will be a decimal between 0.0 and 2.0 (will probably need a conditional to handle input outside of that range).
-// TODO:  2.2 Collect several team members' information.
-// TODO:  2.3 Stop collecting team members when a blank name is entered.
 // TODO:  2.4 Display a message containing the number of members of the team.
 // TODO:  2.5Display each team member's information.
 
@@ -45,23 +73,38 @@ Console.WriteLine($"Team Member: {newMember} | Skill Level: {newMemberSkillLevel
 // TODO: 6.1 At the beginning of the program, prompt the user to enter the difficulty level of the bank.
 // TODO: 6.2 At the end of the program, display a report showing the number of successful runs and the number of failed runs.
 
-namespace Heist
-{
-    // ------------------------------team member class------------------------------------ //
-    public class TeamMember
-    {
-        // constructor for class properties
-        public string Name { get; set; }
-        public int SkillLevel { get; set ; }
-        public double CourageFactor { get; set; }
 
-        // constructor for instance of class (object)
-        public TeamMember(string name, int skillLevel, double courageFactor)
-        {
-            Name = name;
-            SkillLevel = skillLevel;
-            CourageFactor = courageFactor;
-        }
+
+
+// -------------------------------------team------------------------------------------- //
+// public class AllTeamMembers
+// {
+//     // dictionary:
+//     public Dictionary<string, TeamMember> TeamList = new Dictionary<string, TeamMember>();
+
+//     // method:
+//     public void AddTeamMember(TeamMember individualTeamMember)
+//     {
+//         TeamList.Add(individualTeamMember.Name);
+//     }
+
+
+// }
+// -----------------------------------end team----------------------------------------- //
+// ------------------------------team member class------------------------------------ //
+public class TeamMember
+{
+    // constructor for class properties
+    public string Name { get; set; }
+    public int SkillLevel { get; set; }
+    public double CourageFactor { get; set; }
+
+    // constructor for instance of class (object)
+    public TeamMember(string name, int skillLevel, double courageFactor)
+    {
+        Name = name;
+        SkillLevel = skillLevel;
+        CourageFactor = courageFactor;
     }
-    // ----------------------------end team member class---------------------------------- //
 }
+// ----------------------------end team member class---------------------------------- //
