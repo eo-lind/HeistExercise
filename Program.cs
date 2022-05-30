@@ -43,13 +43,14 @@ while (keepAddingToTeam == true)
 }
 
 Console.WriteLine($"Your team has {fullTeamList.Count()} members.");
+foreach (TeamMember singleTeamMember in fullTeamList)
+{
+    Console.WriteLine($"{singleTeamMember.Name}  |  Skill Level: {singleTeamMember.SkillLevel}  |  Courage Factor: {singleTeamMember.CourageFactor}");
+}
 // --------------------end team member acquisition-------------------- //
 
 
 // TODO: NOTE: the courage factor will be a decimal between 0.0 and 2.0 (will probably need a conditional to handle input outside of that range).
-
-// TODO PHASE TWO Will need to refactor the way team members are added (with a method)
-// TODO:  2.5 Display each team member's information.
 
 // TODO PHASE THREE
 // TODO: 3.1 Stop displaying each team member's information.
