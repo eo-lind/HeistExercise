@@ -19,8 +19,8 @@ List <TeamMember> fullTeamList = new List<TeamMember>();
 
 Console.WriteLine("Plan Your Heist!");
 
-while (keepAddingToTeam == true)
 // ----------acquiring team member properties to add to team member list---------- //
+while (keepAddingToTeam == true)
 { 
     Console.WriteLine("Please provide the name of one of your team members.");
     newMember = Console.ReadLine();
@@ -41,15 +41,15 @@ while (keepAddingToTeam == true)
     fullTeamList.Add(accomplice);
     }
 }
-// --------------------end team member acquisition-------------------- //
 
+Console.WriteLine($"Your team has {fullTeamList.Count()} members.");
+// --------------------end team member acquisition-------------------- //
 
 
 // TODO: NOTE: the courage factor will be a decimal between 0.0 and 2.0 (will probably need a conditional to handle input outside of that range).
 
 // TODO PHASE TWO Will need to refactor the way team members are added (with a method)
-// TODO:  2.4 Display a message containing the number of members of the team.
-// TODO:  2.5Display each team member's information.
+// TODO:  2.5 Display each team member's information.
 
 // TODO PHASE THREE
 // TODO: 3.1 Stop displaying each team member's information.
