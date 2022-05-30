@@ -14,13 +14,15 @@ double newMemberCourageFactor = 0.0;
 bool keepAddingToTeam = true;
 int bankDifficultyLevel = 100;
 int teamSkillLevel = 0;
+int luckValue = new Random().Next(-10, 10);
+int bankDifficultyLevelAdjusted = bankDifficultyLevel + luckValue;
 // --------end default variables-------- //
 
 List <TeamMember> fullTeamList = new List<TeamMember>();
 
 Console.WriteLine("Plan Your Heist!");
 
-// ----------acquiring team member properties to add to team member list---------- //
+// ------------------build team------------------ //
 while (keepAddingToTeam == true)
 { 
     Console.WriteLine("Please provide the name of one of your team members.");
@@ -43,25 +45,41 @@ while (keepAddingToTeam == true)
     }
 }
 
-Console.WriteLine($"Your team has {fullTeamList.Count()} members.");
+if (fullTeamList.Count() == 1)
+{
+    Console.WriteLine($"Your team has {fullTeamList.Count()} member.");
+}
+else
+{
+ 
+    Console.WriteLine($"Your team has {fullTeamList.Count()} members.");
+}
 foreach (TeamMember singleTeamMember in fullTeamList)
 {
     teamSkillLevel += singleTeamMember.SkillLevel;
     
 }
 
-Console.WriteLine($"Your team's collective skill level: {teamSkillLevel}");
-// --------------------end team member acquisition-------------------- //
+Console.WriteLine($"Your team's collective skill level: {teamSkillLevel}S");
+// ----------------------------end build team---------------------------- //
+
+// ----------------------team vs bank comparison---------------------- //
+if (teamSkillLevel >= bankDifficultyLevelAdjusted)
+{
+    Console.WriteLine("Congratulations, Ex-Presidents! You pulled it off!");
+}
+else
+{
+    Console.WriteLine("Your heist failed. You're headed for prison. Vaya con Dios.");
+}
+
+// --------------------end team vs bank comparison-------------------- //
+
 
 
 // TODO: NOTE: the courage factor will be a decimal between 0.0 and 2.0 (will probably need a conditional to handle input outside of that range).
 
-// TODO PHASE THREE
-// TODO: 3.4 Compare the number with the bank's difficulty level. If the team's skill level is greater than or equal to the bank's difficulty level, Display a success message, otherwise display a failure message.
-
-// TODO PHASE FOUR
-// TODO: 4.1 Create a random number between -10 and 10 for the heist's luck value.
-// TODO: 4.2 Add this number to the bank's difficulty level.
+// TODO PHASE FOURS
 // TODO: 4.3 Before displaying the success or failure message, display a report that shows.
 // TODO:     4.3.1 The team's combined skill level
 // TODO:     4.3.2 The bank's difficulty level
