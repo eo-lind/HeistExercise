@@ -18,6 +18,8 @@ int teamSkillLevel = 0;
 int luckValue = 0;
 int bankDifficultyLevelAdjusted = 0;
 int numOfTrials = 0;
+int successes = 0;
+int failures = 0;
 // --------end default variables-------- //
 
 List <TeamMember> fullTeamList = new List<TeamMember>();
@@ -86,31 +88,26 @@ for (int i = 0; i < numOfTrials; i++)
         Console.WriteLine($"Team Skill Level: {teamSkillLevel}  |  Bank Difficulty Level: {bankDifficultyLevelAdjusted}");
         Console.WriteLine("Congratulations, Ex-Presidents! You pulled it off!");
         Console.WriteLine();
+        successes += 1;
     }
     else
     {
         Console.WriteLine($"Team Skill Level: {teamSkillLevel}  |  Bank Difficulty Level: {bankDifficultyLevelAdjusted}");
         Console.WriteLine("Your heist failed. You're headed for prison. Vaya con Dios.");
         Console.WriteLine();
+        failures += 1;
     }
-
     // --------------------end team vs bank comparison-------------------- //
 }
+
+Console.WriteLine($"SUCCESSES: {successes}  |  FAILURES: {failures}");
 
 // ----------------------------end run trials---------------------------- //
 
 
 
 
-
-// TODO: NOTE: the courage factor will be a decimal between 0.0 and 2.0 (will probably need a conditional to handle input outside of that range).
-
 // TODO: handle exceptions
-
-
-// TODO PHASE SIX
-// TODO: 6.2 At the end of the program, display a report showing the number of successful runs and the number of failed runs.
-
 
 
 // ------------------------------team member class------------------------------------ //
