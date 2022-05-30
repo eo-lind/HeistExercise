@@ -1,10 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 
-//! static void Main(string[] args)
-// {
-// }
-
 // ----------default variables---------- //
 string newMember = "default";
 string newMemberSkillLevelString = "";
@@ -103,12 +99,6 @@ for (int i = 0; i < numOfTrials; i++)
 Console.WriteLine($"SUCCESSES: {successes}  |  FAILURES: {failures}");
 
 // ----------------------------end run trials---------------------------- //
-
-
-
-
-// TODO: handle exceptions
-
 
 // ------------------------------team member class------------------------------------ //
 public class TeamMember
