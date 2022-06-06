@@ -18,7 +18,7 @@ int successes = 0;
 int failures = 0;
 // --------end default variables-------- //
 
-List <TeamMember> fullTeamList = new List<TeamMember>();
+List<TeamMember> fullTeamList = new List<TeamMember>();
 
 Console.WriteLine("Plan Your Heist!");
 Console.WriteLine();
@@ -28,7 +28,7 @@ bankDifficultyLevel = int.Parse(bankDifficultyLevelString);
 
 // ------------------build team------------------ //
 while (keepAddingToTeam == true)
-{ 
+{
     Console.WriteLine("Please provide the name of one of your team members.");
     newMember = Console.ReadLine();
 
@@ -38,15 +38,15 @@ while (keepAddingToTeam == true)
     }
     else
     {
-    Console.WriteLine($"Please enter a numerical skill level for {newMember}.");
-    newMemberSkillLevelString = Console.ReadLine();
-    newMemberSkillLevel = int.Parse(newMemberSkillLevelString);
-    Console.WriteLine($"Please enter a courage factor between 0.0 and 2.0 for {newMember}.)");
-    newMemberCourageFactorString = Console.ReadLine();
-    newMemberCourageFactor = Double.Parse(newMemberCourageFactorString);
+        Console.WriteLine($"Please enter a numerical skill level for {newMember}.");
+        newMemberSkillLevelString = Console.ReadLine();
+        newMemberSkillLevel = int.Parse(newMemberSkillLevelString);
+        Console.WriteLine($"Please enter a courage factor between 0.0 and 2.0 for {newMember}.)");
+        newMemberCourageFactorString = Console.ReadLine();
+        newMemberCourageFactor = Double.Parse(newMemberCourageFactorString);
 
-    TeamMember accomplice = new TeamMember(newMember, newMemberSkillLevel, newMemberCourageFactor);
-    fullTeamList.Add(accomplice);
+        TeamMember accomplice = new TeamMember(newMember, newMemberSkillLevel, newMemberCourageFactor);
+        fullTeamList.Add(accomplice);
     }
 }
 
@@ -59,7 +59,7 @@ if (fullTeamList.Count() == 1)
 }
 else
 {
- 
+
     Console.WriteLine($"Your team has {fullTeamList.Count()} members.");
     Console.WriteLine("How many trial runs of the heist would you like to perform?");
     numOfTrials = int.Parse(Console.ReadLine());
@@ -68,7 +68,7 @@ else
 foreach (TeamMember singleTeamMember in fullTeamList)
 {
     teamSkillLevel += singleTeamMember.SkillLevel;
-    
+
 }
 // ----------------------------end build team---------------------------- //
 
